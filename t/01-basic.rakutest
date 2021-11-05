@@ -1,0 +1,29 @@
+use Test;
+use Array::Sorted::Util:ver<0.0.7>:auth<zef:lizmat>;
+use Array::Sorted::Map;
+
+plan 10;
+
+my @keys;
+my @values;
+
+inserts(@keys, "b", @values, 666);  # "inserts" from Array::Sorted::Util
+inserts(@keys, "a", @values, 42);
+
+my %map := Array::Sorted::Map.new(:@keys, :@values);
+isa-ok %map, Array::Sorted::Map, 'did we get the right object type';
+
+is %map<a>,  42, 'did we get value of a';
+is %map<b>, 666, 'did we get value of b';
+is-deeply %map<c>, Nil, 'did we get no value for c';
+
+is %map.keys,   "a b",    'did we get the keys in right order';
+is %map.values, "42 666", 'did we get the values in right order';
+is %map.kv, "a 42 b 666", 'did we get the kv in right order';
+is %map.pairs.Str, "a\t42 b\t666", 'did we get the pairs in right order';
+is %map.anti-pairs.Str, "42\ta 666\tb", 'did we get anti-pairs in right order';
+
+%map.iterator.push-all(my @pushed);
+is @pushed.Str, "a\t42 b\t666", 'did we the iterator produce in right order';
+
+# vim: expandtab shiftwidth=4

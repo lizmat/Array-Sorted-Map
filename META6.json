@@ -1,0 +1,26 @@
+{
+  "auth": "zef:lizmat",
+  "authors": [
+    "Elizabeth Mattijsen"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+    "Array::Sorted::Util:ver<0.0.7>:auth<zef:lizmat>"
+  ],
+  "description": "provide a Map interface for 2 sorted lists",
+  "license": "Artistic-2.0",
+  "name": "Array::Sorted::Map",
+  "perl": "6.d",
+  "provides": {
+    "Array::Sorted::Map": "lib/Array/Sorted/Map.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}
