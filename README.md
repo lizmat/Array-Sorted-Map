@@ -1,7 +1,9 @@
+[![Actions Status](https://github.com/lizmat/Array-Sorted-Map/workflows/test/badge.svg)](https://github.com/lizmat/Array-Sorted-Map/actions)
+
 NAME
 ====
 
-Array::Sorted::Map - provide a Map interface for 2 sorted lists
+Array::Sorted::Map - Provide a Map interface for 2 sorted lists
 
 SYNOPSIS
 ========
@@ -29,7 +31,7 @@ say %map.values;  # (42 666)
 DESCRIPTION
 ===========
 
-Array::Sorted::Map provides a class that can be used to provide a `Map` interface to two sorted lists: one for keys, and one for values, such are typically created / maintained by the subroutines offered by the `Array::Sorted::Util` distribution.
+Array::Sorted::Map provides a class that can be used to provide a `Map` interface to two sorted lists: one for keys, and one for values, such as typically created / maintained by the subroutines offered by the `Array::Sorted::Util` distribution.
 
 AUTHOR
 ======

@@ -8,7 +8,7 @@
   "depends": [
     "Array::Sorted::Util:ver<0.0.7>:auth<zef:lizmat>"
   ],
-  "description": "provide a Map interface for 2 sorted lists",
+  "description": "Provide a Map interface for 2 sorted lists",
   "license": "Artistic-2.0",
   "name": "Array::Sorted::Map",
   "perl": "6.d",
@@ -17,7 +17,7 @@
   },
   "resources": [
   ],
-  "source-url": "",
+  "source-url": "https://github.com/lizmat/Array-Sorted-Map.git",
   "tags": [
   ],
   "test-depends": [
