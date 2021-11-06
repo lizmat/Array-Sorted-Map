@@ -2,5 +2,11 @@ Revision history for Array-Sorted-Map
 
 {{$NEXT}}
 
+0.0.2  2021-11-06T20:43:08+01:00
+    - Add support for :cmp parameter on object creation
+    - Add support for .elems
+    - Add support for :exists (.EXISTS-KEY)
+    - Up dependency on Array::Sorted::Util
+
 0.0.1  2021-11-05T21:14:28+01:00
     - Initial version

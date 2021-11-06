@@ -1,14 +1,17 @@
-use Array::Sorted::Util:ver<0.0.7>:auth<zef:lizmat>;
+use Array::Sorted::Util:ver<0.0.8>:auth<zef:lizmat>;
 
-class Array::Sorted::Map:ver<0.0.1>:auth<zef:lizmat> does Associative {
+class Array::Sorted::Map:ver<0.0.2>:auth<zef:lizmat> does Associative {
     has $.keys   is built(:bind) is required;
     has $.values is built(:bind) is required;
+    has &.cmp    is built(:bind) = &infix:<cmp>;
 
     method AT-KEY(\key) {
-        (my $pos := finds($!keys, key)).defined
+        (my $pos := finds($!keys, key, :&!cmp)).defined
           ?? $!values[$pos]
           !! Nil
     }
+
+    method EXISTS-KEY(\key) { finds($!keys, key, :&!cmp).defined }
 
     method kv() {
         gather for ^$!keys.elems {
@@ -25,6 +28,7 @@ class Array::Sorted::Map:ver<0.0.1>:auth<zef:lizmat> does Associative {
     method iterator() {
         self.pairs.iterator
     }
+    method elems() { $!keys.elems }
 }
 
 =begin pod
@@ -63,6 +67,10 @@ Array::Sorted::Map provides a class that can be used to provide a C<Map>
 interface to two sorted lists: one for keys, and one for values, such as
 typically created / maintained by the subroutines offered by the
 C<Array::Sorted::Util> distribution.
+
+Optionally, a C<:cmp> argument can be specified, indicating the logic that
+should be used for comparing elements from the keys.  By default, the
+C<infix:<cmp>> will be assumed.
 
 =head1 AUTHOR
 

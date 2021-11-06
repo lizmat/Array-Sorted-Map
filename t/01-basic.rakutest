@@ -1,8 +1,8 @@
 use Test;
-use Array::Sorted::Util:ver<0.0.7>:auth<zef:lizmat>;
+use Array::Sorted::Util:ver<0.0.8>:auth<zef:lizmat>;
 use Array::Sorted::Map;
 
-plan 10;
+plan 14;
 
 my @keys;
 my @values;
@@ -17,6 +17,11 @@ is %map<a>,  42, 'did we get value of a';
 is %map<b>, 666, 'did we get value of b';
 is-deeply %map<c>, Nil, 'did we get no value for c';
 
+is-deeply %map<a>:exists,  True, 'does a exist';
+is-deeply %map<b>:exists,  True, 'does b exist';
+is-deeply %map<c>:exists, False, 'does c not exist';
+
+is %map.elems, 2,         'did we get right number of elems';
 is %map.keys,   "a b",    'did we get the keys in right order';
 is %map.values, "42 666", 'did we get the values in right order';
 is %map.kv, "a 42 b 666", 'did we get the kv in right order';

@@ -33,6 +33,8 @@ DESCRIPTION
 
 Array::Sorted::Map provides a class that can be used to provide a `Map` interface to two sorted lists: one for keys, and one for values, such as typically created / maintained by the subroutines offered by the `Array::Sorted::Util` distribution.
 
+Optionally, a `:cmp` argument can be specified, indicating the logic that should be used for comparing elements from the keys. By default, the `infix:<cmp>` will be assumed.
+
 AUTHOR
 ======
 
