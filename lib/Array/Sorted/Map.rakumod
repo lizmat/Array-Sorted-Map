@@ -1,7 +1,8 @@
-use Array::Sorted::Util:ver<0.0.8>:auth<zef:lizmat>;
+use Array::Sorted::Util:ver<0.0.9>:auth<zef:lizmat>;
 
-class Array::Sorted::Map:ver<0.0.2>:auth<zef:lizmat> does Associative {
-    has $.keys   is built(:bind) is required;
+class Array::Sorted::Map does Associative {
+    has $.keys   is built(:bind) is required
+      handles <end elems Numeric Int Bool>;
     has $.values is built(:bind) is required;
     has &.cmp    is built(:bind) = &infix:<cmp>;
 
@@ -28,7 +29,6 @@ class Array::Sorted::Map:ver<0.0.2>:auth<zef:lizmat> does Associative {
     method iterator() {
         self.pairs.iterator
     }
-    method elems() { $!keys.elems }
 }
 
 =begin pod
@@ -76,12 +76,16 @@ C<infix:<cmp>> will be assumed.
 
 Elizabeth Mattijsen <liz@raku.rocks>
 
-=head1 COPYRIGHT AND LICENSE
-
-Copyright 2021 Elizabeth Mattijsen
-
 Source can be located at: https://github.com/lizmat/Array-Sorted-Map .
 Comments and Pull Requests are welcome.
+
+If you like this module, or what I’m doing more generally, committing to a
+L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
+deal to me!
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2021, 2024 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
