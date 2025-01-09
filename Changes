@@ -1,6 +1,9 @@
 Revision history for Array-Sorted-Map
 
 {{$NEXT}}
+    - Add CI badge for each OS
+    - Up dependency on Array::Sorted::Util
+    - Update copyright year
 
 0.0.3  2024-06-24T20:00:38+02:00
     - Add sponsor link and button
